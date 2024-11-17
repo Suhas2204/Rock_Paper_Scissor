@@ -1,5 +1,5 @@
 # include <iostream>
-#include <ctime>
+# include <ctime>
 
 char getUserChoice();
 char getComputerChoice();
@@ -91,7 +91,7 @@ void chooseWinner (char player, char computer)
                     else if (computer == 'p'){
                         std::cout << "You lose.\n";
         }
-                     else {
+                    else {
                         std::cout << "You win.\n";
         }
         break;
@@ -102,18 +102,18 @@ void chooseWinner (char player, char computer)
                     else if (computer == 'p'){
                         std::cout << "It is a tie.\n";
         }
-                     else {
+                    else {
                         std::cout << "You loose.\n";
         }
         break;
         
-         case 's':   if (computer == 'r'){
+         case 's':  if (computer == 'r'){
                         std::cout << "You lose.\n";
         }
                     else if (computer == 'p'){
                         std::cout << "You win.\n";
         }
-                     else {
+                    else {
                         std::cout << "It is a tie.\n";
         }
         break;
