@@ -1,4 +1,5 @@
 # include <iostream>
+#include <ctime>
 
 char getUserChoice();
 char getComputerChoice();
@@ -12,7 +13,14 @@ int main ()
     char computer;
 
     player = getUserChoice();
+    std::cout << "Your choice is: ";
+    showChoice(player);
 
+    computer = getComputerChoice();
+    std::cout << "Computers Choice: ";
+    showChoice(computer);
+
+    chooseWinner(player,computer);
 
 }
 
@@ -41,16 +49,73 @@ char getUserChoice()
 }
 
 char getComputerChoice()
-{   return 0;
+{   srand(time(0));
+    int num = rand ()% 3+1;
+
+    
+    switch (num)
+    {
+        case 1 : return 'r';    
+        case 2 :  return 'p';
+        case 3 : return 's';
+
+    }
+    
+    return 0;
 
 }
 
 void showChoice(char choice)
-{
 
+{
+    switch(choice)
+    {
+        case 'r': std::cout << "Rock\n";
+            break;
+        case 'p': std::cout << "Paper\n";
+            break;
+        case 's': std::cout << "Scissors";
+            break;
+
+
+    }
 }
 
 void chooseWinner (char player, char computer)
 {
+    switch (player)
+    {
+        case 'r':   if (computer == 'r'){
+                        std::cout << "It is a tie.\n";
+        }
+                    else if (computer == 'p'){
+                        std::cout << "You lose.\n";
+        }
+                     else {
+                        std::cout << "You win.\n";
+        }
+        break;
 
+        case 'p':   if (computer == 'r'){
+                        std::cout << "You win.\n";
+        }
+                    else if (computer == 'p'){
+                        std::cout << "It is a tie.\n";
+        }
+                     else {
+                        std::cout << "You loose.\n";
+        }
+        break;
+        
+         case 's':   if (computer == 'r'){
+                        std::cout << "You lose.\n";
+        }
+                    else if (computer == 'p'){
+                        std::cout << "You win.\n";
+        }
+                     else {
+                        std::cout << "It is a tie.\n";
+        }
+        break;
+    }
 }
